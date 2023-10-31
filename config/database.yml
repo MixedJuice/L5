@@ -26,6 +26,7 @@ production:
   encoding: unicode
   pool: 5
   database: test_moep
-  username: test_render_cbm5_user
+  username: test_moep_user
   password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
+
