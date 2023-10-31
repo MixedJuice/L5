@@ -25,8 +25,8 @@ production:
   adapter: postgersql
   encoding: unicode
   pool: 5
-  database: test_moep
-  username: test_moep_user
+  database: test_uuq5
+  username: test_uuq5_user
   password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
 
