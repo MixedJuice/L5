@@ -1,0 +1,19 @@
+<h1>ツイート一覧</h1>
+<% if session[:login_uid] %>
+    <%= link_to 'ログアウト', top_logout_path %><br>
+<% else %>
+    <%= link_to 'ログイン', top_main_path %><br>
+<% end %>
+
+<% @tweets.each do |tweet| %>
+    <%= tweet.message %>
+    <% if session[:login_uid] %>
+        <%= link_to '削除', tweet_path(tweet), method: :delete %>
+        <%= link_to 'いいね削除', likes_path(params: { tweet_id: tweet.id, login_uid: session[:uid] }), data: { "turbo-method": :delete } %>
+        <%= link_to 'いいね', likes_path(params: { tweet_id: tweet.id, login_uid: session[:uid] }), data: { "turbo-method": :post } %>
+    <% end %>
+    <br>
+<% end %>
+
+<%= link_to "ツイートする", new_tweet_path %><br>
+<%= link_to "ユーザー一覧", users_path %>
