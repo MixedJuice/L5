@@ -9,7 +9,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(message: params[:tweet][:message])
-    @tweet.user = User.find_by(uid: session[:login_uid])
+    @tweet.user_id = User.find_by(uid: current_user)
     if @tweet.save
       redirect_to tweets_path
     else
